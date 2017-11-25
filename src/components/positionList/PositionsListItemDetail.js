@@ -3,6 +3,7 @@ import { Col, Collection, CollectionItem, Row, Badge } from "react-materialize";
 import SkillBadge from "../SkillBadge";
 import ApplicantListItem from "./ApplicantListItem";
 import ApplicantListHeader from "./ApplicantListHeader";
+import AddSkillBadge from "../AddSkillBadge";
 
 class PositionsListItemDetail extends React.Component {
   render() {
@@ -30,6 +31,7 @@ class PositionsListItemDetail extends React.Component {
                 </Col>
                 <Col s={7} offset={'s1'}>
                   <p>
+                    <AddSkillBadge/>
                     {skills.map((skill) =>
                       <SkillBadge skill={skill} />
                     )}

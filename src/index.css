@@ -7,3 +7,7 @@ body {
 .header {
   font-weight: 700;
 }
+
+.add-skill:hover {
+  cursor: pointer;
+}
