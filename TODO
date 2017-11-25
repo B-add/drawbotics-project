@@ -6,3 +6,7 @@ TODO (That I'll never do):
 - Secure API
 - Log user
 - Add HR profile
+- HANDLE ERRORS
+- Display loading text or icon when retrieving data
+- Handle adding already existing skill (back & front)
+- Remove last weird warning (li cannot be in li...)

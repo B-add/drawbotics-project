@@ -1,5 +1,5 @@
 import React from 'react';
-import {Col, Collapsible, CollapsibleItem, Collection, CollectionItem, Row} from "react-materialize";
+import {Col, Collapsible, CollapsibleItem, Row} from "react-materialize";
 import PositionsListItem from "./PositionsListItem";
 import PositionsListItemDetail from "./PositionsListItemDetail";
 
@@ -9,7 +9,7 @@ class PositionsList extends React.Component {
   }
 
   render() {
-    const { positions, positionsError, positionsLoading } = this.props;
+    const { positions } = this.props;
     return (
       <Row>
         <Col s={10} offset={'s1'}>

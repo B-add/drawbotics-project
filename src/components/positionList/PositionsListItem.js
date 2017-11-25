@@ -1,10 +1,10 @@
 import React from 'react';
-import { Col, Collection, CollectionItem, Row, Badge } from "react-materialize";
+import { Col, Row, Badge } from "react-materialize";
 import SkillBadge from "../SkillBadge";
 
 class PositionsListItem extends React.Component {
   render() {
-    const { title, _id, applicants, skills } = this.props;
+    const { title, applicants, skills } = this.props;
     let skillCount = 0;
     return (
       <Row style={{
@@ -15,8 +15,8 @@ class PositionsListItem extends React.Component {
         </Col>
         <Col s={4} offset={'s2'}>
           <p>
-            {skills.length > 2 ? <SkillBadge skill={'...'}/> : null}
-            {skills.map((skill) => skillCount++ < 2 ? <SkillBadge skill={skill}/> : null)}
+            {skills.length > 3 ? <SkillBadge key={0} skill={'...'}/> : null}
+            {skills.map((skill) => skillCount++ < 3 ? <SkillBadge key={skillCount} skill={skill}/> : null)}
           </p>
         </Col>
         <Col s={2}>

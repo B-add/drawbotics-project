@@ -1,5 +1,5 @@
 import React from 'react';
-import { Col, Collection, CollectionItem, Row, Badge } from "react-materialize";
+import { Col, Collection, CollectionItem, Row } from "react-materialize";
 import SkillBadge from "../SkillBadge";
 import ApplicantListItem from "./ApplicantListItem";
 import ApplicantListHeader from "./ApplicantListHeader";
@@ -33,7 +33,7 @@ class PositionsListItemDetail extends React.Component {
                   <p>
                     <AddSkillToPositionBadgeContainer positionId={_id}/>
                     {skills.map((skill) =>
-                      <SkillBadge skill={skill} />
+                      <SkillBadge key={skill} skill={skill} />
                     )}
                   </p>
                 </Col>
@@ -42,11 +42,11 @@ class PositionsListItemDetail extends React.Component {
             <Col s={6}>
               <Collection header={<ApplicantListHeader />}>
                 {applicants.map((applicant) =>
-                  <CollectionItem href={"/candidate/" + applicant._id}>
+                  <CollectionItem key={applicant._id} href={"/candidate/" + applicant._id}>
                     <ApplicantListItem {...applicant} />
                   </CollectionItem>
                 )}
-                </Collection>
+              </Collection>
             </Col>
           </Row>
         </Col>

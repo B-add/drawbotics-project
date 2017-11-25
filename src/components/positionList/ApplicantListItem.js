@@ -4,7 +4,7 @@ import SkillBadge from "../SkillBadge";
 
 class ApplicantListItem extends React.Component {
   render() {
-    const { _id, name, firstname, skills } = this.props;
+    const { name, firstname, skills } = this.props;
     let skillCount = 0;
     return (
       <Row style={{
@@ -14,8 +14,8 @@ class ApplicantListItem extends React.Component {
           <p>{firstname} {name}</p>
         </Col>
         <Col s={4} offset={'s1'}>
-          {skills.length > 2 ? <SkillBadge skill={'...'}/> : null}
-          {skills.map((skill) => skillCount++ < 2 ? <SkillBadge skill={skill}/> : null)}
+          {skills.length > 2 ? <SkillBadge key={0} skill={'...'}/> : null}
+          {skills.map((skill) => skillCount++ < 2 ? <SkillBadge key={skillCount} skill={skill}/> : null)}
         </Col>
       </Row>
     )
