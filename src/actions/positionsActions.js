@@ -1,4 +1,4 @@
-import { getPositionsWS } from "../dataAccess/PositionDA";
+import {addSkillToPositionWS, getPositionsWS} from "../dataAccess/PositionDA";
 
 const preGetPositions = () => {
   return {
@@ -7,7 +7,6 @@ const preGetPositions = () => {
 };
 
 const postGetPositions = (response) => {
-  console.log("res", response)
   if (response.status === 200 || response.status === 304) {
     return {
       type: 'POST_GET_POS',
@@ -27,5 +26,35 @@ export const getPositions = () => {
     return getPositionsWS()
       .then(response => dispatch(postGetPositions(response)))
       .catch(error => dispatch(postGetPositions(error)));
+  }
+};
+
+const preAddSkillToPosition = () => {
+  return {
+    type: 'PRE_ADD_SKILL_POS'
+  }
+};
+
+const postAddSkillToPosition = (response, positionId, skillName) => {
+  if (response.status === 200 || response.status === 304) {
+    return {
+      type: 'POST_ADD_SKILL_POS',
+      positionId: positionId,
+      skill: skillName
+    }
+  } else {
+    return {
+      type: 'ADD_SKILL_POS_ERROR',
+      message: response.message
+    }
+  }
+};
+
+export const addSkillToPosition = (positionId, skillName) => {
+  return dispatch => {
+    dispatch(preAddSkillToPosition());
+    return addSkillToPositionWS(positionId, skillName)
+      .then(response => dispatch(postAddSkillToPosition(response, positionId, skillName)))
+      .catch(error => dispatch(postAddSkillToPosition(error)));
   }
 };

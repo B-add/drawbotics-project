@@ -12,7 +12,7 @@ class AddSkillBadge extends React.Component {
                  className={"green add-skill"}
                  newIcon>+ skill</Badge>
         }>
-        <Form model="form.skillForm" onSubmit={(skill) => console.log(skill)}>
+        <Form model="form.skillForm" onSubmit={(skill) => this.props.addSkill(skill.skillName)}>
           <Row>
             <Col s={4} offset={'s4'}>
               <Control.text
