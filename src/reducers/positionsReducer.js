@@ -22,6 +22,15 @@ const removeSkill = (positions, positionId, skill) => {
   });
 };
 
+const removeApplicant = (positions, positionId, applicantId) => {
+  return positions.map((position) => {
+    if (position._id === positionId) {
+      position.applicants = position.applicants.filter((a) => a._id !== applicantId);
+    }
+    return position;
+  });
+};
+
 const positionsReducer = (state = initialState, action) => {
   switch (action.type) {
     case 'PRE_GET_POS':
@@ -48,10 +57,16 @@ const positionsReducer = (state = initialState, action) => {
       return Object.assign({}, state, {
         positions: removeSkill(state.positions, action.positionId, action.skill)
       });
+    case 'POST_REMOVE_APP_POS':
+      return Object.assign({}, state, {
+        positions: removeApplicant(state.positions, action.positionId, action.applicantId)
+      });
     case 'PRE_REMOVE_SKILL_POS':
     case 'REMOVE_SKILL_POS_ERROR':
     case 'PRE_ADD_SKILL_POS':
     case 'ADD_SKILL_POS_ERROR':
+    case 'PRE_REMOVE_APP_POS':
+    case 'REMOVE_APP_POS_ERROR':
     default:
       return state;
   }

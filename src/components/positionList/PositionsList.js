@@ -1,7 +1,7 @@
 import React from 'react';
 import {Col, Collapsible, CollapsibleItem, Row} from "react-materialize";
 import PositionsListItem from "./PositionsListItem";
-import PositionsListItemDetail from "./PositionsListItemDetail";
+import PositionsListItemDetailContainer from "../../containers/PositionsListItemDetailContainer";
 
 class PositionsList extends React.Component {
   componentDidMount() {
@@ -15,7 +15,7 @@ class PositionsList extends React.Component {
         <Col s={10} offset={'s1'}>
           <Collapsible>
             {positions.map((position) => <CollapsibleItem key={position._id} header={<PositionsListItem {...position} />}>
-              <PositionsListItemDetail {...position} />
+              <PositionsListItemDetailContainer {...position} />
             </CollapsibleItem>)}
           </Collapsible>
         </Col>

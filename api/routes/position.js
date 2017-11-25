@@ -46,7 +46,7 @@ router.post('/attachCandidate', (req, res) => {
   });
 });
 
-router.delete('/detachCandidate', (req, res) => {
+router.post('/detachCandidate', (req, res) => {
   positionDA.detachCandidateFromPosition(req.body.positionId, req.body.candidateId).then((position) => {
     res.json(position);
   }).catch((err) => {

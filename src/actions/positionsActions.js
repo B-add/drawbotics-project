@@ -1,4 +1,7 @@
-import {addSkillToPositionWS, getPositionsWS, removeSkillFromPositionWS} from "../dataAccess/PositionDA";
+import {
+  addSkillToPositionWS, getPositionsWS, removeApplicantFromPositionWS,
+  removeSkillFromPositionWS
+} from "../dataAccess/PositionDA";
 
 const preGetPositions = () => {
   return {
@@ -86,5 +89,36 @@ export const removeSkillFromPosition = (positionId, skillName) => {
     return removeSkillFromPositionWS(positionId, skillName)
       .then(response => dispatch(postRemoveSkillFromPosition(response, positionId, skillName)))
       .catch(error => dispatch(postRemoveSkillFromPosition(error)));
+  }
+};
+
+
+const preRemoveApplicantFromPosition = () => {
+  return {
+    type: 'PRE_REMOVE_APP_POS'
+  }
+};
+
+const postRemoveApplicantFromPosition = (response, positionId, applicantId) => {
+  if (response.status === 200 || response.status === 304) {
+    return {
+      type: 'POST_REMOVE_APP_POS',
+      positionId: positionId,
+      applicantId: applicantId
+    }
+  } else {
+    return {
+      type: 'REMOVE_APP_POS_ERROR',
+      message: response.message
+    }
+  }
+};
+
+export const removeApplicantFromPosition = (positionId, applicantId) => {
+  return dispatch => {
+    dispatch(preRemoveApplicantFromPosition());
+    return removeApplicantFromPositionWS(positionId, applicantId)
+      .then(response => dispatch(postRemoveApplicantFromPosition(response, positionId, applicantId)))
+      .catch(error => dispatch(postRemoveApplicantFromPosition(error)));
   }
 };
