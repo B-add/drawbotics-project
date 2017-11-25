@@ -38,5 +38,23 @@ router.delete('/removeSkill', (req, res) => {
   });
 });
 
+router.post('/attachCandidate', (req, res) => {
+  positionDA.attachCandidateToPosition(req.body.positionId, req.body.candidateId).then((position) => {
+    res.json(position);
+  }).catch((err) => {
+    res.json(false);
+  });
+});
+
+router.delete('/detachCandidate', (req, res) => {
+  positionDA.detachCandidateFromPosition(req.body.positionId, req.body.candidateId).then((position) => {
+    res.json(position);
+  }).catch((err) => {
+    console.log(err)
+    res.json(false);
+  });
+});
+
+
 module.exports = router;
 

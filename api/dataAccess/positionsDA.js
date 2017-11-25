@@ -1,4 +1,5 @@
 const PositionModel = require("../models/PositionModel");
+const CandidateModel = require("../models/CandidateModel");
 
 exports.getPositionsData = () => {
   return PositionModel.find({});
@@ -28,6 +29,24 @@ exports.addPositionSkill = (id, skill) => {
 exports.removePositionSkill = (id, skill) => {
   return PositionModel.findOne({ _id:id }).then((position) => {
     position.skills = position.skills.filter((s) => s !== skill);
+    return position.save();
+  })
+};
+
+exports.attachCandidateToPosition = (positionId, candidateId) => {
+  return PositionModel.findOne({ _id:positionId }).then((position) => {
+    return CandidateModel.findOne({ _id:candidateId }).then((candidate) => {
+      position.applicants.push(candidate);
+      return position.save();
+    })
+  })
+};
+
+exports.detachCandidateFromPosition = (positionId, candidateId) => {
+  return PositionModel.findOne({ _id:positionId }).then((position) => {
+    position.applicants = position.applicants.filter((applicant) => {
+      return applicant._id.toString() !== candidateId
+    });
     return position.save();
   })
 };
