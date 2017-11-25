@@ -30,7 +30,7 @@ router.post('/addSkill', (req, res) => {
   });
 });
 
-router.delete('/removeSkill', (req, res) => {
+router.post('/removeSkill', (req, res) => {
   positionDA.removePositionSkill(req.body.id, req.body.skill).then((position) => {
     res.json(position);
   }).catch((err) => {

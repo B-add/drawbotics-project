@@ -8,6 +8,11 @@ body {
   font-weight: 700;
 }
 
-.add-skill:hover {
+.add-skill:hover,
+.cross:hover {
   cursor: pointer;
+}
+
+.cross {
+  color: #ad0000;
 }

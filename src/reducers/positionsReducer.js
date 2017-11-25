@@ -13,6 +13,15 @@ const addSkill = (positions, positionId, skill) => {
   });
 };
 
+const removeSkill = (positions, positionId, skill) => {
+  return positions.map((position) => {
+    if (position._id === positionId) {
+      position.skills = position.skills.filter((s) => s !== skill);
+    }
+    return position;
+  });
+};
+
 const positionsReducer = (state = initialState, action) => {
   switch (action.type) {
     case 'PRE_GET_POS':
@@ -35,6 +44,12 @@ const positionsReducer = (state = initialState, action) => {
       return Object.assign({}, state, {
         positions: addSkill(state.positions, action.positionId, action.skill)
       });
+    case 'POST_REMOVE_SKILL_POS':
+      return Object.assign({}, state, {
+        positions: removeSkill(state.positions, action.positionId, action.skill)
+      });
+    case 'PRE_REMOVE_SKILL_POS':
+    case 'REMOVE_SKILL_POS_ERROR':
     case 'PRE_ADD_SKILL_POS':
     case 'ADD_SKILL_POS_ERROR':
     default:

@@ -1,9 +1,9 @@
 import React from 'react';
 import { Col, Collection, CollectionItem, Row } from "react-materialize";
-import SkillBadge from "../SkillBadge";
 import ApplicantListItem from "./ApplicantListItem";
 import ApplicantListHeader from "./ApplicantListHeader";
 import AddSkillToPositionBadgeContainer from "../../containers/AddSkillToPositionBadgeContainer";
+import RemoveSkillFromPositionBadgeContainer from "../../containers/RemoveSkillFromPositionBadgeContainer";
 
 class PositionsListItemDetail extends React.Component {
   render() {
@@ -33,7 +33,7 @@ class PositionsListItemDetail extends React.Component {
                   <p>
                     <AddSkillToPositionBadgeContainer positionId={_id}/>
                     {skills.map((skill) =>
-                      <SkillBadge key={skill} skill={skill} />
+                      <RemoveSkillFromPositionBadgeContainer key={skill} skill={skill} positionId={_id}/>
                     )}
                   </p>
                 </Col>

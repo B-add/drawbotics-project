@@ -10,3 +10,11 @@ export const addSkillToPositionWS = (positionId, skillName) => {
     skill: skillName
   });
 };
+
+export const removeSkillFromPositionWS = (positionId, skillName) => {
+  console.log(positionId, skillName)
+  return axios.post('http://localhost:3001/position/removeSkill', {
+    id: positionId,
+    skill: skillName
+  });
+};
