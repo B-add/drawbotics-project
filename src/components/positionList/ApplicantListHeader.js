@@ -1,5 +1,5 @@
 import React from 'react';
-import { Col, Row } from "react-materialize";
+import {Button, Col, Row} from "react-materialize";
 
 class ApplicantListHeader extends React.Component {
   render() {
@@ -7,13 +7,16 @@ class ApplicantListHeader extends React.Component {
       <Row style={{
         marginBottom: 0
       }}>
-        <Col s={6}>
-          <p className={'header'}>Applicant</p>
+        <Col s={5}>
+          <p className={'header center'}>Applicant</p>
         </Col>
-        <Col s={4} offset={'s1'}>
-          <p className={'header'}>
+        <Col s={5}>
+          <p className={'header center'}>
             Applicant's skills
           </p>
+        </Col>
+        <Col s={2} className={"center"}>
+          <Button floating small className='blue' waves='light' icon='add' />
         </Col>
       </Row>
     )
