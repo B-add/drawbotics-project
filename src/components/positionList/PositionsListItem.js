@@ -1,6 +1,6 @@
 import React from 'react';
 import { Col, Collection, CollectionItem, Row, Badge } from "react-materialize";
-import SkillBadge from "./SkillBadge";
+import SkillBadge from "../SkillBadge";
 
 class PositionsListItem extends React.Component {
   render() {

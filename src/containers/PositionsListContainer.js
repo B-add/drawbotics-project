@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import PositionsList from '../components/PositionsList';
+import PositionsList from '../components/positionList/PositionsList';
 import { getPositions } from '../actions/positionsActions';
 
 const mapStateToProps = (state = []) => {
