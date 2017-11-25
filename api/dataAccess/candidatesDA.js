@@ -1,15 +1,15 @@
 const CandidateModel = require("../models/CandidateModel");
 
-exports.getCandidate = () => {
+exports.getCandidates = () => {
   return CandidateModel.find({});
 };
 
-exports.addCandidate= (name, firstname, mail) => {
+exports.addCandidate= (name, firstname, mail, skills) => {
   var candidate = new CandidateModel({
-    name: String,
-    firstname: String,
-    mail: String,
-    skills: []
+    name: name,
+    firstname: firstname,
+    mail: mail,
+    skills: skills.split(';')
   });
   return candidate.save();
 };
