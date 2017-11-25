@@ -8,5 +8,11 @@ router.get('/', (req, res) => {
   })
 });
 
+router.post('/', (req, res) => {
+  positionDA.addPosition(req.body.title).then((position) => {
+    res.json(position);
+  })
+});
+
 module.exports = router;
 

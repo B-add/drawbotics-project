@@ -1,11 +1,16 @@
 var express = require('express');
 var mongoose = require('mongoose');
+var bodyParser = require('body-parser');
+
 
 mongoose.connect('mongodb://lamatt_v:lamatt_v@ds119736.mlab.com:19736/drawbotics-project');
 
 var position = require('./routes/position');
 
 const app = express();
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use('/position', position);
 
