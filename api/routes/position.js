@@ -14,5 +14,13 @@ router.post('/', (req, res) => {
   })
 });
 
+router.delete('/', (req, res) => {
+  positionDA.removePosition(req.body.id).then((result) => {
+    res.json(true);
+  }).catch((err) => {
+    res.json(false);
+  });
+});
+
 module.exports = router;
 

@@ -13,3 +13,8 @@ exports.addPosition = (title) => {
   });
   return position.save();
 };
+
+
+exports.removePosition = (id) => {
+  return Position.find({ _id:id }).remove().exec();
+};
