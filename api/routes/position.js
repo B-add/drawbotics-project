@@ -22,5 +22,21 @@ router.delete('/', (req, res) => {
   });
 });
 
+router.post('/addSkill', (req, res) => {
+  positionDA.addPositionSkill(req.body.id, req.body.skill).then((position) => {
+    res.json(position);
+  }).catch((err) => {
+    res.json(false);
+  });
+});
+
+router.delete('/removeSkill', (req, res) => {
+  positionDA.removePositionSkill(req.body.id, req.body.skill).then((position) => {
+    res.json(position);
+  }).catch((err) => {
+    res.json(false);
+  });
+});
+
 module.exports = router;
 
