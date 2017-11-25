@@ -7,7 +7,6 @@ class PositionsList extends React.Component {
 
   render() {
     const { positions, positionsError, positionsLoading } = this.props;
-    console.log("pos", positions);
     return (
       <div>
         {positions.map((p) => <p>{p.title}</p>)}
