@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 
 const PositionSchema = new mongoose.Schema({
   title: String,
+  description: String,
   skills: [String],
   applicants: [{
     name: String,

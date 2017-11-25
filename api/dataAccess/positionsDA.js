@@ -5,9 +5,10 @@ exports.getPositionsData = () => {
   return PositionModel.find({});
 };
 
-exports.addPosition = (title) => {
+exports.addPosition = (title, description) => {
   var position = new PositionModel({
     title: title,
+    description: description,
     skills: [],
     applicants: []
   });

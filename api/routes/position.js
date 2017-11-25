@@ -9,7 +9,7 @@ router.get('/', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-  positionDA.addPosition(req.body.title).then((position) => {
+  positionDA.addPosition(req.body.title, req.body.description).then((position) => {
     res.json(position);
   })
 });
