@@ -1,12 +1,11 @@
-const mongoose = require("mongoose");
-const Position = require("../models/Position");
+const PositionModel = require("../models/PositionModel");
 
 exports.getPositionsData = () => {
-  return Position.find({});
+  return PositionModel.find({});
 };
 
 exports.addPosition = (title) => {
-  var position = new Position({
+  var position = new PositionModel({
     title: title,
     skills: [],
     applicants: []
@@ -16,18 +15,18 @@ exports.addPosition = (title) => {
 
 
 exports.removePosition = (id) => {
-  return Position.find({ _id:id }).remove().exec();
+  return PositionModel.find({ _id:id }).remove().exec();
 };
 
 exports.addPositionSkill = (id, skill) => {
-  return Position.findOne({ _id:id }).then((position) => {
+  return PositionModel.findOne({ _id:id }).then((position) => {
     position.skills.push(skill);
     return position.save();
   })
 };
 
 exports.removePositionSkill = (id, skill) => {
-  return Position.findOne({ _id:id }).then((position) => {
+  return PositionModel.findOne({ _id:id }).then((position) => {
     position.skills = position.skills.filter((s) => s !== skill);
     return position.save();
   })
