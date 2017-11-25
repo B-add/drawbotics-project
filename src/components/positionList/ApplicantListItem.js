@@ -14,10 +14,8 @@ class ApplicantListItem extends React.Component {
           <p>{firstname} {name}</p>
         </Col>
         <Col s={4} offset={'s1'}>
-          <p>
-            {skills.length > 2 ? <SkillBadge skill={'...'}/> : null}
-            {skills.map((skill) => skillCount++ < 2 ? <SkillBadge skill={skill}/> : null)}
-          </p>
+          {skills.length > 2 ? <SkillBadge skill={'...'}/> : null}
+          {skills.map((skill) => skillCount++ < 2 ? <SkillBadge skill={skill}/> : null)}
         </Col>
       </Row>
     )

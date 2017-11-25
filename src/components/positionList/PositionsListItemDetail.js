@@ -40,7 +40,7 @@ class PositionsListItemDetail extends React.Component {
             <Col s={6}>
               <Collection header={<ApplicantListHeader />}>
                 {applicants.map((applicant) =>
-                  <CollectionItem>
+                  <CollectionItem href={"/candidate/" + applicant._id}>
                     <ApplicantListItem {...applicant} />
                   </CollectionItem>
                 )}
