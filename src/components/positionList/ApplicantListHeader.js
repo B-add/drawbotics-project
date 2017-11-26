@@ -16,7 +16,7 @@ class ApplicantListHeader extends React.Component {
           </p>
         </Col>
         <Col s={2} className={"center"}>
-          <Button floating small className='blue' waves='light' icon='add' />
+          <Button floating small={"true"} className='blue' waves='light' icon='add' />
         </Col>
       </Row>
     )

@@ -19,7 +19,7 @@ class ApplicantListItem extends React.Component {
           {skills.map((skill) => skillCount++ < 2 ? <SkillBadge key={skillCount} skill={skill}/> : null)}
         </Col>
         <Col s={2} className={"center"}>
-          <Button floating small className='red' waves='light' icon='clear' onClick={() => removeApplicant(_id)}/>
+          <Button floating small={"true"} className='red' waves='light' icon='clear' onClick={() => removeApplicant(_id)}/>
         </Col>
       </Row>
     )
