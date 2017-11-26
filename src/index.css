@@ -16,3 +16,8 @@ body {
 .cross {
   color: #ad0000;
 }
+
+.delete-pos i {
+  line-height: 40px;
+  width: inherit;
+}
