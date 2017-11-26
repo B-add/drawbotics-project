@@ -9,7 +9,8 @@ TODO (That I'll never do):
 - HANDLE ERRORS
 - Display loading text or icon when retrieving data
 - Handle adding already existing skill (back & front)
-- Remove last weird warning (li cannot be in li...)
+- Remove weird warning (li cannot be in li...)
 - Put applicant skills matching position in first
 - Add doc to API (swagger)
 - Prevent collapse opening on position deletion
+- Remove from applicants to add to a position the ones already assign to this position

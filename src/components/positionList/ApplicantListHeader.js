@@ -1,8 +1,10 @@
 import React from 'react';
 import {Button, Col, Row} from "react-materialize";
+import AddApplicantModal from "./AddApplicantModal";
 
 class ApplicantListHeader extends React.Component {
   render() {
+    const { getApplicants, allApplicants } = this.props;
     return (
       <Row style={{
         marginBottom: 0
@@ -16,7 +18,9 @@ class ApplicantListHeader extends React.Component {
           </p>
         </Col>
         <Col s={2} className={"center"}>
-          <Button floating small={"true"} className='blue' waves='light' icon='add' />
+          <AddApplicantModal getApplicants={getApplicants} applicants={allApplicants} trigger={
+            <Button floating small={"true"} className='blue' waves='light' icon='add' />
+          }/>
         </Col>
       </Row>
     )

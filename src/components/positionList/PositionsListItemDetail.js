@@ -7,7 +7,7 @@ import RemoveSkillFromPositionBadgeContainer from "../../containers/RemoveSkillF
 
 class PositionsListItemDetail extends React.Component {
   render() {
-    const { _id, description, applicants, skills, removeApplicant } = this.props;
+    const { _id, description, applicants, skills, removeApplicant, getAllApplicants, allApplicants } = this.props;
     return (
       <Row>
         <Col s={12}>
@@ -40,7 +40,7 @@ class PositionsListItemDetail extends React.Component {
               </Row>
             </Col>
             <Col s={6}>
-              <Collection header={<ApplicantListHeader />}>
+              <Collection header={<ApplicantListHeader getApplicants={getAllApplicants} allApplicants={allApplicants}/>}>
                 {applicants.map((applicant) =>
                   <CollectionItem key={applicant._id}>
                     <ApplicantListItem {...applicant} removeApplicant={removeApplicant}/>

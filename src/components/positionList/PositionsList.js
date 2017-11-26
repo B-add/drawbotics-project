@@ -7,10 +7,11 @@ import AddPositionModal from "./AddPositionModal";
 class PositionsList extends React.Component {
   componentDidMount() {
     this.props.getPositions();
+    this.props.getAllApplicants();
   }
 
   render() {
-    const { positions, addPosition, deletePosition } = this.props;
+    const { positions, addPosition, deletePosition, allApplicants } = this.props;
     return (
       <div>
         <Row>
@@ -32,7 +33,7 @@ class PositionsList extends React.Component {
           <Col s={10} offset={'s1'}>
             <Collapsible>
               {positions.map((position) => <CollapsibleItem key={position._id} header={<PositionsListItem {...position} deletePosition={ deletePosition } />}>
-                <PositionsListItemDetailContainer {...position} />
+                <PositionsListItemDetailContainer {...position} allApplicants={allApplicants}/>
               </CollapsibleItem>)}
             </Collapsible>
           </Col>
