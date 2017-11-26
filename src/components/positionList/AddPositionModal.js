@@ -5,11 +5,12 @@ import {mapProps, TextArea, TextInput} from "react-redux-form-materialize";
 
 class AddPositionModal extends React.Component {
   render() {
+    const { trigger, addPosition } = this.props;
     return (
       <Modal
         header='Add Position'
-        trigger={ this.props.trigger }>
-        <Form model="form.positionForm" onSubmit={(position) => console.log(position)}>
+        trigger={ trigger }>
+        <Form model="form.positionForm" onSubmit={(position) => addPosition(position)}>
           <Row>
             <Col s={4} offset={'s2'}>
 

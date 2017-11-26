@@ -61,6 +61,12 @@ const positionsReducer = (state = initialState, action) => {
       return Object.assign({}, state, {
         positions: removeApplicant(state.positions, action.positionId, action.applicantId)
       });
+    case 'POST_ADD_POS':
+      return Object.assign({}, state, {
+        positions: [...state.positions, action.position]
+      });
+    case 'PRE_ADD_POS':
+    case 'ADD_POS_ERROR':
     case 'PRE_REMOVE_SKILL_POS':
     case 'REMOVE_SKILL_POS_ERROR':
     case 'PRE_ADD_SKILL_POS':

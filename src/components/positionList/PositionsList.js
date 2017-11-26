@@ -10,7 +10,7 @@ class PositionsList extends React.Component {
   }
 
   render() {
-    const { positions } = this.props;
+    const { positions, addPosition } = this.props;
     return (
       <div>
         <Row>
@@ -23,9 +23,9 @@ class PositionsList extends React.Component {
           </Col>
           <Col s={1} offset={'s3'}>
             <AddPositionModal trigger={
-              <Button floating large className='red' waves='light' icon='add' style={{
+              <Button floating large className='blue' waves='light' icon='add' style={{
                 marginTop: '2.1rem'
-              }}/>}/>
+              }}/>} addPosition={addPosition}/>
           </Col>
         </Row>
         <Row>

@@ -4,6 +4,10 @@ export const getPositionsWS = () => {
   return axios.get('http://localhost:3001/position');
 };
 
+export const addPositionWS = (position) => {
+  return axios.post('http://localhost:3001/position', position);
+};
+
 export const addSkillToPositionWS = (positionId, skillName) => {
   return axios.post('http://localhost:3001/position/addSkill', {
     id: positionId,
