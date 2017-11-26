@@ -2,6 +2,7 @@ import React from 'react';
 import {Button, Col, Collapsible, CollapsibleItem, Row} from "react-materialize";
 import PositionsListItem from "./PositionsListItem";
 import PositionsListItemDetailContainer from "../../containers/PositionsListItemDetailContainer";
+import AddPositionModal from "./AddPositionModal";
 
 class PositionsList extends React.Component {
   componentDidMount() {
@@ -21,9 +22,10 @@ class PositionsList extends React.Component {
             </h1>
           </Col>
           <Col s={1} offset={'s3'}>
+            <AddPositionModal trigger={
               <Button floating large className='red' waves='light' icon='add' style={{
                 marginTop: '2.1rem'
-              }}/>
+              }}/>}/>
           </Col>
         </Row>
         <Row>
