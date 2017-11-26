@@ -12,3 +12,4 @@ TODO (That I'll never do):
 - Remove last weird warning (li cannot be in li...)
 - Put applicant skills matching position in first
 - Add doc to API (swagger)
+- Prevent collapse opening on position deletion

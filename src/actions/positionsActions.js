@@ -1,6 +1,6 @@
 import {
   addPositionWS,
-  addSkillToPositionWS, getPositionsWS, removeApplicantFromPositionWS,
+  addSkillToPositionWS, deletePositionWS, getPositionsWS, removeApplicantFromPositionWS,
   removeSkillFromPositionWS
 } from "../dataAccess/PositionDA";
 
@@ -59,6 +59,35 @@ export const addPosition = (position) => {
     return addPositionWS(position)
       .then(response => dispatch(postAddPosition(response)))
       .catch(error => dispatch(postAddPosition(error)));
+  }
+};
+
+const preDeletePosition = () => {
+  return {
+    type: 'PRE_DEL_POS'
+  }
+};
+
+const postDeletePosition = (response, positionId) => {
+  if (response.status === 200 || response.status === 304) {
+    return {
+      type: 'POST_DEL_POS',
+      positionId: positionId
+    }
+  } else {
+    return {
+      type: 'DEL_POS_ERROR',
+      message: response.message
+    }
+  }
+};
+
+export const deletePosition = (positionId) => {
+  return dispatch => {
+    dispatch(preDeletePosition());
+    return deletePositionWS(positionId)
+      .then(response => dispatch(postDeletePosition(response, positionId)))
+      .catch(error => dispatch(postDeletePosition(error)));
   }
 };
 

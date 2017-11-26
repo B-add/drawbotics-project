@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import PositionsList from '../components/positionList/PositionsList';
-import {addPosition, getPositions} from '../actions/positionsActions';
+import {addPosition, getPositions, deletePosition} from '../actions/positionsActions';
 
 const mapStateToProps = (state = []) => {
   return {
@@ -17,6 +17,9 @@ const mapDispatchToProps = (dispatch) => {
     },
     addPosition: (position) => {
       return dispatch(addPosition(position));
+    },
+    deletePosition: (positionId) => {
+      return dispatch(deletePosition(positionId));
     }
   }
 };

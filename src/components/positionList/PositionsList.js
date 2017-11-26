@@ -10,7 +10,7 @@ class PositionsList extends React.Component {
   }
 
   render() {
-    const { positions, addPosition } = this.props;
+    const { positions, addPosition, deletePosition } = this.props;
     return (
       <div>
         <Row>
@@ -31,7 +31,7 @@ class PositionsList extends React.Component {
         <Row>
           <Col s={10} offset={'s1'}>
             <Collapsible>
-              {positions.map((position) => <CollapsibleItem key={position._id} header={<PositionsListItem {...position} />}>
+              {positions.map((position) => <CollapsibleItem key={position._id} header={<PositionsListItem {...position} deletePosition={ deletePosition } />}>
                 <PositionsListItemDetailContainer {...position} />
               </CollapsibleItem>)}
             </Collapsible>

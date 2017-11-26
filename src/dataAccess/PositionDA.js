@@ -8,6 +8,11 @@ export const addPositionWS = (position) => {
   return axios.post('http://localhost:3001/position', position);
 };
 
+
+export const deletePositionWS = (positionId) => {
+  return axios.delete('http://localhost:3001/position/' + positionId);
+};
+
 export const addSkillToPositionWS = (positionId, skillName) => {
   return axios.post('http://localhost:3001/position/addSkill', {
     id: positionId,

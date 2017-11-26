@@ -4,7 +4,7 @@ import SkillBadge from "../SkillBadge";
 
 class PositionsListItem extends React.Component {
   render() {
-    const { title, applicants, skills } = this.props;
+    const { _id, title, applicants, skills, deletePosition } = this.props;
     let skillCount = 0;
     return (
       <Row style={{
@@ -23,7 +23,7 @@ class PositionsListItem extends React.Component {
           <p><Badge>{applicants.length} Applicants</Badge></p>
         </Col>
         <Col s={1}>
-          <p style={{ textAlign: "center" }}><Button floating small={"true"} className='red delete-pos' waves='light' icon='clear' /></p>
+          <p style={{ textAlign: "center" }}><Button onClick={() => deletePosition(_id)} floating small={"true"} className='red delete-pos' waves='light' icon='clear' /></p>
         </Col>
       </Row>
     )
