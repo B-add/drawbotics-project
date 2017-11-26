@@ -14,14 +14,6 @@ router.post('/', (req, res) => {
   })
 });
 
-router.delete('/', (req, res) => {
-  positionDA.removePosition(req.body.id).then((result) => {
-    res.json(true);
-  }).catch((err) => {
-    res.json(false);
-  });
-});
-
 router.post('/addSkill', (req, res) => {
   positionDA.addPositionSkill(req.body.id, req.body.skill).then((position) => {
     res.json(position);
@@ -51,6 +43,15 @@ router.post('/detachCandidate', (req, res) => {
     res.json(position);
   }).catch((err) => {
     console.log(err)
+    res.json(false);
+  });
+});
+
+
+router.delete('/:id', (req, res) => {
+  positionDA.removePosition(req.params.id).then((result) => {
+    res.json(true);
+  }).catch((err) => {
     res.json(false);
   });
 });
