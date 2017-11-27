@@ -12,7 +12,7 @@ class AddApplicantModal extends React.Component {
           <Col s={10} offset={'s1'}>
             <Collection>
               {applicants.map((applicant) =>
-                <CollectionItem>{applicant.firstname} {applicant.name}</CollectionItem>)}
+                <CollectionItem key={applicant._id}>{applicant.firstname} {applicant.name}</CollectionItem>)}
             </Collection>
           </Col>
         </Row>
